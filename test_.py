@@ -7,14 +7,12 @@ baseUrl = data()['base']
 def test_createUser():
     create = requests.post(baseUrl + data()['user']['add'], json=payload())
     assert create.status_code == 200 or 201
-    print(create.json())
     return create.json()
 
 def test_loginUser():
     session = requests.session()
     login = session.post(baseUrl + data()['user']['login'], json=credentials("login"))
     assert login.status_code == 200 or 201
-    print(login.json())
     return login.json(), session
 
 def test_updateUser():
@@ -22,7 +20,6 @@ def test_updateUser():
     connsess = session()
     userUpdate = connsess.patch(baseUrl + user(), json=credentials("update"), headers=header)
     assert userUpdate.status_code == 200 or 201
-    print(userUpdate.json())
     return userUpdate.json()
 
 def test_deleteUser():
@@ -36,7 +33,6 @@ def test_UserList():
     connsess = session()
     userList = connsess.get(baseUrl + user(), headers=header)
     assert userList.status_code == 200
-    print(userList.json())
 
 def credentials(request: str)-> str:
     dataResponse = test_createUser()['user']['email']

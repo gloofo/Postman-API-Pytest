@@ -1,0 +1,6 @@
+base:  "https://thinking-tester-contact-list.herokuapp.com"
+user:
+  list: "/users/me"
+  add: "/users"
+  login: "/users/login"
+  del: 

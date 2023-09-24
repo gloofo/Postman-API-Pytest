@@ -3,4 +3,3 @@ user:
   list: "/users/me"
   add: "/users"
   login: "/users/login"
-  del: 
